@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F71DF151955D26B009D03F7 /* clock_view.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F71DF131955D26B009D03F7 /* clock_view.cpp */; };
 		5F982F83194F3C5A008AF65C /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F982F82194F3C5A008AF65C /* ResourcePath.mm */; };
 		5F982F86194F3C5A008AF65C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F982F85194F3C5A008AF65C /* main.cpp */; };
 		5F982F89194F3C5A008AF65C /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F982F88194F3C5A008AF65C /* cute_image.jpg */; };
 		5F982F8B194F3C5A008AF65C /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 5F982F8A194F3C5A008AF65C /* nice_music.ogg */; };
 		5F982F8D194F3C5A008AF65C /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F982F8C194F3C5A008AF65C /* sansation.ttf */; };
 		5F982F8F194F3C5A008AF65C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F982F8E194F3C5A008AF65C /* icon.png */; };
+		5F982F97194F3CB3008AF65C /* chess_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F982F95194F3CB3008AF65C /* chess_clock.cpp */; };
+		5F982F9A194FC2E9008AF65C /* countdown_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F982F98194FC2E9008AF65C /* countdown_clock.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F71DF131955D26B009D03F7 /* clock_view.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clock_view.cpp; sourceTree = "<group>"; };
+		5F71DF141955D26B009D03F7 /* clock_view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clock_view.h; sourceTree = "<group>"; };
 		5F982F7D194F3C5A008AF65C /* Chess_Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess_Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F982F81194F3C5A008AF65C /* Chess_Clock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chess_Clock-Info.plist"; sourceTree = "<group>"; };
 		5F982F82194F3C5A008AF65C /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -25,6 +30,10 @@
 		5F982F8A194F3C5A008AF65C /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		5F982F8C194F3C5A008AF65C /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		5F982F8E194F3C5A008AF65C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		5F982F95194F3CB3008AF65C /* chess_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chess_clock.cpp; sourceTree = "<group>"; };
+		5F982F96194F3CB3008AF65C /* chess_clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chess_clock.h; sourceTree = "<group>"; };
+		5F982F98194FC2E9008AF65C /* countdown_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = countdown_clock.cpp; sourceTree = "<group>"; };
+		5F982F99194FC2E9008AF65C /* countdown_clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countdown_clock.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,12 @@
 				5F982F82194F3C5A008AF65C /* ResourcePath.mm */,
 				5F982F84194F3C5A008AF65C /* ResourcePath.hpp */,
 				5F982F85194F3C5A008AF65C /* main.cpp */,
+				5F982F98194FC2E9008AF65C /* countdown_clock.cpp */,
+				5F982F99194FC2E9008AF65C /* countdown_clock.h */,
+				5F71DF131955D26B009D03F7 /* clock_view.cpp */,
+				5F71DF141955D26B009D03F7 /* clock_view.h */,
+				5F982F95194F3CB3008AF65C /* chess_clock.cpp */,
+				5F982F96194F3CB3008AF65C /* chess_clock.h */,
 				5F982F87194F3C5A008AF65C /* Resources */,
 				5F982F80194F3C5A008AF65C /* Supporting Files */,
 			);
@@ -167,7 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F71DF151955D26B009D03F7 /* clock_view.cpp in Sources */,
+				5F982F9A194FC2E9008AF65C /* countdown_clock.cpp in Sources */,
 				5F982F86194F3C5A008AF65C /* main.cpp in Sources */,
+				5F982F97194F3CB3008AF65C /* chess_clock.cpp in Sources */,
 				5F982F83194F3C5A008AF65C /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +332,7 @@
 				5F982F94194F3C5A008AF65C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
