@@ -22,14 +22,13 @@ class chessClock {
     
     int player_lose(); // returns 1 if player 1 loses, 2 if player 2 loses
 public:
-    int startClock(int player);   // returns 1 if clock was paused
+    int startClock();   // returns 1 if clock was paused
     void setTimePlayer(int* time, int player);
     int stopClock();    // returns 1 if clock was running
     
     
     int* getTimePlayer(int player);//returns time as an array - minutes - seconds - milliseconds
     
-    chessClock();
     
     
 };

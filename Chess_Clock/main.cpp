@@ -19,11 +19,13 @@
 
 // Here is a small helper for you ! Have a look.
 #include "ResourcePath.hpp"
-#include <chess_clock.h>
+
+#include <clock_view.h>
 
 int main(int, char const**)
 {
-    // Create the main window
+    
+    /*// Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Chess Clock");
 
     // Set the Icon
@@ -86,7 +88,9 @@ int main(int, char const**)
 
         // Update the window
         window.display();
-    }
-
+    }*/
+    std::cout<<"gonna launch\n";
+    clockView view;
+    view.launch();
     return EXIT_SUCCESS;
 }

@@ -10,10 +10,18 @@
 
 void countdownClock::startClock() {
     sf::Time elapsed_time;
-    while (this->time[0] != 0 || this->time[1] != 0) {
+
+    while (clock_state != CLOCK_TERMINATE) {
         while (clock_state == CLOCK_RUNNING) {
             elapsed_time = this->clock.restart();
-            this->time[this->current_player] -= elapsed_time.asMilliseconds();
+            if (elapsed_time.asMilliseconds() < this->time[this->current_player]) {
+                this->time[this->current_player] -= elapsed_time.asMilliseconds();
+            }
+            else {
+                this->time[this->current_player] = -1;
+                this->clock_state = CLOCK_PAUSED;
+            }
+            
         }
     }
 }

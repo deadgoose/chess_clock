@@ -8,7 +8,7 @@
 
 #include "chess_clock.h"
 
-int chessClock::startClock(int player) {
+int chessClock::startClock() {
     //for now calls toggle clock no matter the argument
     this->clock.toggleClock();
     return 1;
@@ -16,10 +16,7 @@ int chessClock::startClock(int player) {
 
 
 
-chessClock::chessClock() {
-    this->clock = *new countdownClock();
-    this->clock.startClock();
-}
+
 
 
 int* chessClock::getTimePlayer(int player) {

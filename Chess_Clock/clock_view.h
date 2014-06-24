@@ -10,15 +10,28 @@
 #define __Chess_Clock__clock_view__
 
 #include <iostream>
-#include <countdown_clock.h>
+#include "ResourcePath.hpp"
+#include <chess_clock.h>
 
 class clockView {
-    countdownClock clock;
+    chessClock clock;
+    sf::RenderWindow* window;
+    sf::Font game_font;
+    sf::Image icon;
+    
+    int init();
+    
+    std::string p0_time;
+    std::string p1_time;
+    
+    sf::Text* text_p0;
+    sf::Text* text_p1;
 public:
-    void update();
+    void poll();
     void draw();
     void setTime();
     void processInput();
+    void launch();
     
     clockView();
     

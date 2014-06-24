@@ -15,12 +15,14 @@
 #define CLOCK_PAUSED 0
 #define CLOCK_RUNNING 1
 #define CLOCK_SET 2
+#define CLOCK_TERMINATE 3
 
 class countdownClock {
     sf::Clock clock;
     sf::Int32 time[2];
     int clock_state;
     int current_player;
+    
     
     
 public:
