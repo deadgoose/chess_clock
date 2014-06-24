@@ -12,6 +12,8 @@
 #include <iostream>
 #include "ResourcePath.hpp"
 #include <chess_clock.h>
+#define GAME_WIDTH 600
+#define GAME_HEIGHT 800
 
 class clockView {
     chessClock clock;

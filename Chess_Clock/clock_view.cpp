@@ -65,9 +65,8 @@ void clockView::launch() {
 
 
 int clockView::init() {
-    this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "Chess Clock");
+    this->window = new sf::RenderWindow(sf::VideoMode(GAME_HEIGHT, GAME_WIDTH), "Chess Clock");
     this->clock = chessClock();
-    
     if (!this->icon.loadFromFile(resourcePath() + "icon.png")) {
         return EXIT_FAILURE;
     }
@@ -84,7 +83,9 @@ int clockView::init() {
     this->text_p0 = new sf::Text("foo", this->game_font, 50);
     this->text_p1 = new sf::Text("foo", this->game_font, 50);
     this->text_p0->setColor(sf::Color::Red);
-    this->text_p1->setColor(sf::Color::Black);
+    this->text_p1->setColor(sf::Color::Blue);
+    this->text_p0->setPosition(GAME_WIDTH/2, GAME_HEIGHT/2);
+    this->text_p1->setPosition(0, 0);
     
     return 1;
 
