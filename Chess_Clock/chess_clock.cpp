@@ -42,3 +42,8 @@ void chessClock::setTimePlayer(int* time, int player) {
 int chessClock::stopClock() {
     return this->clock.stopClock();
 }
+
+
+void chessClock::terminate() {
+    this->clock.terminate();
+}

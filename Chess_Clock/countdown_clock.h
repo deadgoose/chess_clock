@@ -29,6 +29,7 @@ public:
     int toggleClock();   //both return 1 if able to start/stop
     int stopClock();
     void startClock();
+    void terminate();
     
     void setTime(sf::Int32 time, int player); //sets the time (in ms) and resets the clock, player has to be 0 or 1
     sf::Int32 getTime(int player); //returns the time (in ms), player has to be 0 or 1

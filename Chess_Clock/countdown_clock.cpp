@@ -9,10 +9,13 @@
 #include "countdown_clock.h"
 
 void countdownClock::startClock() {
+    std::cout << "entering thread\n";
     sf::Time elapsed_time;
 
     while (clock_state != CLOCK_TERMINATE) {
+        std::cout << "clock state is " << this->clock_state << "\n";
         while (clock_state == CLOCK_RUNNING) {
+            
             elapsed_time = this->clock.restart();
             if (elapsed_time.asMilliseconds() < this->time[this->current_player]) {
                 this->time[this->current_player] -= elapsed_time.asMilliseconds();
@@ -32,7 +35,10 @@ int countdownClock::toggleClock() {
         this->current_player = (this->current_player + 1) % 2;
         return 1;
     }
-    return 0;
+    else {
+        this->clock_state = CLOCK_RUNNING;
+    }
+    return 1;
     
 }
 
@@ -65,4 +71,9 @@ countdownClock::countdownClock() {
     this->time[1] = 60000;
     this->current_player = 0;
     
+}
+
+
+void countdownClock::terminate() {
+    this->clock_state = CLOCK_TERMINATE;
 }

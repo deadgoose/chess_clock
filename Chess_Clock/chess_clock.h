@@ -29,6 +29,8 @@ public:
     
     int* getTimePlayer(int player);//returns time as an array - minutes - seconds - milliseconds
     
+    void terminate();
+    
     
     
 };

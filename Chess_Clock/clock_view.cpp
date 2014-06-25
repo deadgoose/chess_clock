@@ -8,13 +8,13 @@
 
 #include "clock_view.h"
 
-/*void startClockFunc(chessClock clock) {
+void startClockFunc(chessClock clock) {
     clock.startClock();
-}*/
+}
 
 void clockView::draw() {
-    int* p0_time = this->clock.getTimePlayer(0);
-    int* p1_time = this->clock.getTimePlayer(1);
+    int* p0_time = this->clock->getTimePlayer(0);
+    int* p1_time = this->clock->getTimePlayer(1);
     if (p0_time[0] == -1) {
         this->p0_time = "LOSE";
     }
@@ -22,13 +22,13 @@ void clockView::draw() {
         this->p1_time = "LOSE";
     }
     else {
-        this->p0_time = std::to_string(this->clock.getTimePlayer(0)[0]) + "::" +
-                    std::to_string(this->clock.getTimePlayer(0)[1]) + ":" +
-                    std::to_string(this->clock.getTimePlayer(0)[2]);
+        this->p0_time = std::to_string(this->clock->getTimePlayer(0)[0]) + "::" +
+                    std::to_string(this->clock->getTimePlayer(0)[1]) + ":" +
+                    std::to_string(this->clock->getTimePlayer(0)[2]);
     
-        this->p1_time = std::to_string(this->clock.getTimePlayer(1)[0]) + "::" +
-                    std::to_string(this->clock.getTimePlayer(1)[1]) + ":" +
-                    std::to_string(this->clock.getTimePlayer(1)[2]);
+        this->p1_time = std::to_string(this->clock->getTimePlayer(1)[0]) + "::" +
+                    std::to_string(this->clock->getTimePlayer(1)[1]) + ":" +
+                    std::to_string(this->clock->getTimePlayer(1)[2]);
     }
     this->text_p0->setString(this->p0_time);
     this->text_p1->setString(this->p1_time);
@@ -43,16 +43,28 @@ void clockView::draw() {
 void clockView::poll() {
     sf::Event event;
     while (this->window->pollEvent(event)) {
-        //poll events
+        if (event.type == sf::Event::Closed) {
+            this->window->close();
+        }
+        if (event.type == sf::Event::KeyPressed) {
+            if (event.key.code == sf::Keyboard::Escape) {
+                this->window->close();
+            }
+            else {
+                this->clock->startClock();
+            }
+            
+            
+        }
+        
     }
 }
 
 
 
-
-
 void clockView::launch() {
-    //sf::Thread clock_thread(&startClockFunc, this->clock);
+    sf::Thread clock_thread(&startClockFunc, *this->clock);
+    clock_thread.launch();
     
     while (this->window->isOpen()) {
         
@@ -61,12 +73,14 @@ void clockView::launch() {
         this->draw();
         window->display();
     }
+    
+    this->clock->terminate();
 }
 
 
 int clockView::init() {
     this->window = new sf::RenderWindow(sf::VideoMode(GAME_HEIGHT, GAME_WIDTH), "Chess Clock");
-    this->clock = chessClock();
+    this->clock = new chessClock();
     if (!this->icon.loadFromFile(resourcePath() + "icon.png")) {
         return EXIT_FAILURE;
     }

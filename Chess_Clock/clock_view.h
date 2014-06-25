@@ -16,7 +16,7 @@
 #define GAME_HEIGHT 800
 
 class clockView {
-    chessClock clock;
+    chessClock* clock;
     sf::RenderWindow* window;
     sf::Font game_font;
     sf::Image icon;
