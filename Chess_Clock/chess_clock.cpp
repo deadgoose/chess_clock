@@ -8,13 +8,16 @@
 
 #include "chess_clock.h"
 
-int chessClock::startClock() {
+int chessClock::toggleClock() {
     //for now calls toggle clock no matter the argument
     this->clock.toggleClock();
     return 1;
 }
 
 
+void chessClock::beginClockLoop() {
+    this->clock.startClock();
+}
 
 
 
@@ -46,4 +49,5 @@ int chessClock::stopClock() {
 
 void chessClock::terminate() {
     this->clock.terminate();
+    std::cout<<"call terminate in chess clock\n";
 }

@@ -8,8 +8,8 @@
 
 #include "clock_view.h"
 
-void startClockFunc(chessClock clock) {
-    clock.startClock();
+void startClockFunc(chessClock* clock) {
+    clock->beginClockLoop();
 }
 
 void clockView::draw() {
@@ -51,26 +51,41 @@ void clockView::poll() {
                 this->window->close();
             }
             else {
-                this->clock->startClock();
+                std::cout<<"clicked key\n";
+                this->clock->toggleClock();
             }
             
             
         }
         
     }
+
 }
 
 
 
 void clockView::launch() {
-    sf::Thread clock_thread(&startClockFunc, *this->clock);
+    sf::Thread clock_thread(&startClockFunc, this->clock);
     clock_thread.launch();
     
+    sf::Time timePerFrame = sf::seconds(1.0f / 60.0f); // 60 frames per second
+    sf::Clock deltaClock;  // This will track how much time has past since the last frame
+    sf::Time timeSinceLastUpdate = sf::Time::Zero;
+    
     while (this->window->isOpen()) {
+        sf::Time deltaTime = deltaClock.restart();  // Restart returns the time since the last restart call
+        timeSinceLastUpdate += deltaTime;
         
-        this->poll();
-        window->clear();
-        this->draw();
+        while (timeSinceLastUpdate >= timePerFrame)
+        {
+            timeSinceLastUpdate -= timePerFrame;
+            
+            this->poll();
+            window->clear();
+            this->draw();  // Notice how I pass the time per frame to the update function
+        }
+        
+
         window->display();
     }
     

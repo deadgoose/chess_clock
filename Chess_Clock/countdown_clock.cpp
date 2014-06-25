@@ -13,12 +13,15 @@ void countdownClock::startClock() {
     sf::Time elapsed_time;
 
     while (clock_state != CLOCK_TERMINATE) {
-        std::cout << "clock state is " << this->clock_state << "\n";
+        //std::cout << "clock state is " << this->clock_state << "\n";
+        this->clock.restart();
         while (clock_state == CLOCK_RUNNING) {
+            //std::cout << "clock running !\n";
             
             elapsed_time = this->clock.restart();
             if (elapsed_time.asMilliseconds() < this->time[this->current_player]) {
                 this->time[this->current_player] -= elapsed_time.asMilliseconds();
+                //std::cout << "player " << this->current_player << "time is " << this->time[this->current_player] << "\n";
             }
             else {
                 this->time[this->current_player] = -1;
@@ -76,4 +79,5 @@ countdownClock::countdownClock() {
 
 void countdownClock::terminate() {
     this->clock_state = CLOCK_TERMINATE;
+    std::cout<<"call terminate in countdown clock\n";
 }

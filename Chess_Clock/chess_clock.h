@@ -22,7 +22,8 @@ class chessClock {
     
     int player_lose(); // returns 1 if player 1 loses, 2 if player 2 loses
 public:
-    int startClock();   // returns 1 if clock was paused
+    int toggleClock();   // returns 1 if clock was paused
+    void beginClockLoop();
     void setTimePlayer(int* time, int player);
     int stopClock();    // returns 1 if clock was running
     
